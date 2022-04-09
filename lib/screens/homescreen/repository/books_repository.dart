@@ -6,10 +6,12 @@ import 'package:googe_books_search/screens/homescreen/services/books_services.da
 class BooksRepository {
    String host = locator.get<Configutation>().host;
    String endpoint = locator.get<Configutation>().searchBooksEndpoint;
-   Future<BookSearchModel> fetchSearchBooks () async{
-     String response = await locator.get<BooksServices>().get(host, endpoint, 'harry+potter').then((value) {
+
+   Future<BookSearchModel> fetchSearchBooks (String query) async{
+     String response = await locator.get<BooksServices>().get(host, endpoint, query).then((value) {
        return value;
      });
+     
      return bookSearchModelFromJson(response);
    }
 }

@@ -15,18 +15,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: locator.get<BooksRepository>().fetchSearchBooks(),
-      builder: (context, snapshot) {
-        return MaterialApp(
-          title: 'Books App',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const HomePage(),
-        );
-      },
+    return MaterialApp(
+      title: 'Books App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const HomePage(),
     );
   }
 }

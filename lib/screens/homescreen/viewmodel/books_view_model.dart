@@ -4,7 +4,7 @@ import 'package:googe_books_search/screens/homescreen/model/books_search_model.d
 import 'package:googe_books_search/screens/homescreen/repository/books_repository.dart';
 
 class BooksViewModel extends ChangeNotifier {
-  Future<BookSearchModel> searchBooks() async {
-    return await locator.get<BooksRepository>().fetchSearchBooks();
+  Future<BookSearchModel> searchBooks(String query) async {
+    return await locator.get<BooksRepository>().fetchSearchBooks(query);
   }
 }
