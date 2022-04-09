@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:googe_books_search/locator.dart';
 import 'package:googe_books_search/phraseapp.dart';
 import 'package:googe_books_search/screens/homescreen/widgets/search_icon.dart';
+import 'package:googe_books_search/screens/loginscreen/viewmodel/google_sign_in_view_model.dart';
+import 'package:provider/provider.dart';
 
 class _Constants {
   static const transparent = Colors.transparent;
@@ -35,6 +37,14 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Text(noBooks),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: _Constants.orangeColor,
+        onPressed: () {
+          final provider = Provider.of<GoogleSignInViewModel>(context, listen: false);
+          provider.logout();
+        },
+        child: const Icon(Icons.logout),
       ),
     );
   }

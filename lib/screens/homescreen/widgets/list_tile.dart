@@ -19,6 +19,10 @@ class MyListTile extends StatelessWidget {
       title: Text(
         title,
       ),
+      trailing: Icon(
+        Icons.add,
+        color: color,
+      ),
     );
   }
 }

@@ -63,7 +63,10 @@ class BookSearch extends SearchDelegate<BookSearchModel> {
                 return ListView(
                   children: result!
                       .map<MyListTile>(
-                        (e) => MyListTile(title: e, color: _Constants.orangeColor,),
+                        (e) => MyListTile(
+                          title: e,
+                          color: _Constants.orangeColor,
+                        ),
                       )
                       .toList(),
                 );
