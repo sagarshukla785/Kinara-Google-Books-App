@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 
 class Filters extends StatelessWidget {
   List<String> filters;
-  double heght;
+  double height;
   Filters({
     Key? key,
-    required this.heght,
+    required this.height,
     required this.filters,
   }) : super(key: key);
 
@@ -44,7 +44,7 @@ class Filters extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(left: 10),
       width: double.infinity,
-      height: heght,
+      height: height,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(

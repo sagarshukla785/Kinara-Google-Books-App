@@ -6,6 +6,7 @@ class PhraseApp{
   static const String _books = "Books";
   static const String _errorMessage = "Something went wrong";
   static const String _all = "all";
+  static const String _hello = "Hello";
 
   get signInWithGoogle => _signInWithGoogle;
   get appTitle => _appTitle;
@@ -14,4 +15,5 @@ class PhraseApp{
   get books => _books;
   get errorMessage => _errorMessage;
   get all => _all;
+  get hello => _hello;
 }

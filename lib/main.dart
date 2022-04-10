@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:googe_books_search/locator.dart';
 import 'package:googe_books_search/screens/homescreen/viewmodel/books_view_model.dart';
 import 'package:googe_books_search/screens/loginscreen/viewmodel/google_sign_in_view_model.dart';
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Books App',
       debugShowCheckedModeBanner: false,
