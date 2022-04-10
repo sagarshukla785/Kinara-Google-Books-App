@@ -26,18 +26,22 @@ class ListOfBooks extends StatelessWidget {
           color: Colors.orange,
           child: Container(
             margin: const EdgeInsets.all(2),
-            child: CachedNetworkImage(
-              imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
-              fit: BoxFit.cover,
-              height: 196,
-              width: (width! - 30) / 2,
-            ),
+            child: book.volumeInfo?.imageLinks?.thumbnail != null
+                ? CachedNetworkImage(
+                    imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
+                    fit: BoxFit.cover,
+                    height: 196,
+                    width: (width! - 30) / 2,
+                  )
+                : Container(
+                    color: Colors.white,
+                  ),
           ),
         ),
         Container(
           color: Colors.orange,
           width: (width! - 30) / 2,
-          padding: const EdgeInsets.only(top:2, left: 4, right: 4, bottom: 6),
+          padding: const EdgeInsets.only(top: 2, left: 4, right: 4, bottom: 6),
           alignment: Alignment.center,
           child: Text(
             book.volumeInfo?.title ?? '',
@@ -82,7 +86,7 @@ class ListOfBooks extends StatelessWidget {
     provider.setCurrentBookIndexToZero();
 
     return Container(
-      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 0, left: 10, right: 10),
       height: height,
       width: width,
       child: SingleChildScrollView(

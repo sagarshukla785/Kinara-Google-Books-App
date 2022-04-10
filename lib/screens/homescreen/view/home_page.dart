@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:googe_books_search/locator.dart';
 import 'package:googe_books_search/phraseapp.dart';
 import 'package:googe_books_search/screens/homescreen/viewmodel/books_view_model.dart';
+import 'package:googe_books_search/screens/homescreen/widgets/filters.dart';
 import 'package:googe_books_search/screens/homescreen/widgets/list_of_books.dart';
 import 'package:googe_books_search/screens/homescreen/widgets/search_icon.dart';
 import 'package:googe_books_search/screens/loginscreen/viewmodel/google_sign_in_view_model.dart';
@@ -47,10 +48,18 @@ class HomePage extends StatelessWidget {
           ? Center(
               child: Text(noBooks),
             )
-          : ListOfBooks(
-              height: height,
-              width: width,
-              books: booksViewModelProvider.addedBooks,
+          : Column(
+              children: [
+                Filters(
+                  heght: height * .1,
+                  filters: booksViewModelProvider.filters,
+                ),
+                ListOfBooks(
+                  height: height * .9 - 80,
+                  width: width,
+                  books: booksViewModelProvider.addedBooks,
+                ),
+              ],
             ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: _Constants.orangeColor,
