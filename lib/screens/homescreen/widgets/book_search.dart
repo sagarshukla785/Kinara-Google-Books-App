@@ -44,9 +44,9 @@ class BookSearch extends SearchDelegate<BookSearchModel> {
       query = query.replaceAll(' ', '+');
       return FutureBuilder(
         future: locator.get<BooksViewModel>().searchBooks(query),
-        builder: (context, AsyncSnapshot<BookSearchModel> snapshot) {
+        builder: (context, AsyncSnapshot<BookSearchModel?> snapshot) {
           final result =
-              snapshot.data?.items?.map((e) => e.volumeInfo?.title ?? '');
+              snapshot.data?.items?.map((e) => e);
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
               return const Center(
@@ -64,7 +64,7 @@ class BookSearch extends SearchDelegate<BookSearchModel> {
                   children: result!
                       .map<MyListTile>(
                         (e) => MyListTile(
-                          title: e,
+                          item: e,
                           color: _Constants.orangeColor,
                         ),
                       )
