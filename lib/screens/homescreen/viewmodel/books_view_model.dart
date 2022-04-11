@@ -81,7 +81,6 @@ class BooksViewModel extends ChangeNotifier {
   }
 
   void readUserBooks() async {
-    print("readUserBooks: called");
     final snapshot = await FirebaseFirestore.instance.collection(userId ?? '').get();
     _addedBooks = (snapshot.docs.map((data) => Item.fromJson(data.data()))).toList();
     _filters = _addedBooks.map((e) => e.volumeInfo?.categories?.first ?? '').toList();
